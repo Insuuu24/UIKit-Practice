@@ -1,0 +1,6 @@
+framework module Pods_UIContextMenuInteractionPractice {
+  umbrella header "Pods-UIContextMenuInteractionPractice-umbrella.h"
+
+  export *
+  module * { export * }
+}
