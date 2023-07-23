@@ -1,9 +1,4 @@
-//
-//  AppDelegate.swift
-//  UIContextMenuInteractionPractice
-//
-//  Created by Insu on 2023/07/13.
-//
+
 
 import UIKit
 
