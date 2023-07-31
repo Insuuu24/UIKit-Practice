@@ -1,0 +1,6 @@
+framework module Pods_UICalendarViewPractice {
+  umbrella header "Pods-UICalendarViewPractice-umbrella.h"
+
+  export *
+  module * { export * }
+}
