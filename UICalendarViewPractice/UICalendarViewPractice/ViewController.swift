@@ -10,7 +10,7 @@ class ViewController: UIViewController {
     
     private let dateCalenderView = UICalendarView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        //$0.wantsDateDecorations = true  // 기본값은 true이고 달력 Custom 하기 위해 설정해야 하는 속성
+        $0.wantsDateDecorations = true  // 기본값은 true이고 달력 Custom 하기 위해 설정해야 하는 속성
         $0.locale = Locale(identifier: Locale.current.identifier)
         $0.timeZone = TimeZone(identifier: TimeZone.current.identifier)
         $0.fontDesign = .rounded
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         
         view.backgroundColor = .white
         
-        dateCalenderView.delegate = self
+        setCalendar()
         
         setupLayout()
         
@@ -45,8 +45,10 @@ class ViewController: UIViewController {
         
         view.addSubview(dateCalenderView)
         dateCalenderView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-            $0.size.equalTo(300)
+            $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.height.equalTo(600)
         }
     }
     
@@ -55,7 +57,7 @@ class ViewController: UIViewController {
     
     // MARK: - Method & Action
     
-    fileprivate func setCalendar() {
+    private func setCalendar() {
         dateCalenderView.delegate = self
 
         let dateSelection = UICalendarSelectionSingleDate(delegate: self)
@@ -83,7 +85,7 @@ extension ViewController: UICalendarViewDelegate, UICalendarSelectionSingleDateD
         if let selectedDate = selectedDate, selectedDate == dateComponents {
             return .customView {
                 let label = UILabel()
-                label.text = "🐶"
+                label.text = "🐙"
                 label.textAlignment = .center
                 return label
             }
