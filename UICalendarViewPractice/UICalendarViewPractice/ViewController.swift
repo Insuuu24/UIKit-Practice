@@ -41,9 +41,9 @@ class ViewController: UIViewController {
     
     // MARK: - Setup Layout
     
-    func setupLayout() {
-        
+   private func setupLayout() {
         view.addSubview(dateCalenderView)
+       
         dateCalenderView.snp.makeConstraints {
             $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
             $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
@@ -80,7 +80,6 @@ class ViewController: UIViewController {
 
 extension ViewController: UICalendarViewDelegate, UICalendarSelectionSingleDateDelegate {
 
-    // UICalendarView
     func calendarView(_ calendarView: UICalendarView, decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
         if let selectedDate = selectedDate, selectedDate == dateComponents {
             return .customView {
